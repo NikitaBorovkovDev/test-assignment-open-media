@@ -1,0 +1,17 @@
+.audio-player {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+}
+@media (max-width: 767.98px) {
+	.audio-player {
+		width: 492px;
+	}
+}
+@media (max-width: 575.98px) {
+	.audio-player {
+		width: 100%;
+	}
+}

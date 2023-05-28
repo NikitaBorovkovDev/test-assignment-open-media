@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<link rel="stylesheet" href="./index.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite App</title>
+	</head>
+	<body>
+		<header class="header container">
+			<div class="header__heading-container">
+				<h1 class="header__heading font-regular">
+					Play any audio sources directly in the browser!
+				</h1>
+			</div>
+			<div class="audio-player header__audio-player" id="audio-player">
+				<div class="form">
+					<noscript class="form__heading-warning"></noscript>
+					<h3 class="font-light form__heading">
+						<noscript class="form__heading-warning-title">
+							You need enable javascript
+						</noscript>
+						Insert the link
+					</h3>
+					<form class="form__container">
+						<input
+							type="text"
+							class="font-light form__input"
+							disabled
+							placeholder="https://" />
+						<button type="text" class="form__button" disabled>
+							<span class="form__icon"></span>
+						</button>
+					</form>
+				</div>
+			</div>
+			<p class="font-light header__terms">
+				<span class="font-light">
+					Without any restrictions for free
+				</span>
+				<span>
+					By uploading the audio file, you agree to our
+					<a href="#" class="font-regular header__terms-link">
+						Terms of Service.
+					</a>
+				</span>
+			</p>
+		</header>
+		<main class="container">
+			<section class="description">
+				<div class="description__text-container">
+					<h2 class="font-regular description__heading">
+						How It Works
+					</h2>
+					<p class="font-light description__paragraph">
+						Lorem Ipsum is a "fish" text often used in print and web
+						design. Lorem Ipsum has been the standard "fish" for
+						Latin texts since the early 16th century. At that time,
+						an unnamed printer created a large collection of font
+						sizes and shapes, using Lorem Ipsum for print samples.
+					</p>
+				</div>
+				<div class="description__illustration-container">
+					<div class="description__yellow-squares">
+						<div class="description__yellow-square">
+							<div></div>
+						</div>
+					</div>
+
+					<div class="description__pictures">
+						<div class="description__picture">
+							<div class="description__picture_background">
+								<img src="./icons/Exclude.png" alt="AWS" />
+							</div>
+						</div>
+						<div class="description__picture">
+							<div class="description__picture_background">
+								<img src="./icons/Vector.png" alt="Cloud" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="technical-requirements">
+				<div class="technical-requirements__tab">
+					<table class="technical-requirements__table">
+						<caption
+							class="font-light technical-requirements__table-heading">
+							Technical requirements
+						</caption>
+						<thead class="technical-requirements__table-head">
+							<tr
+								class="technical-requirements__table-subheadings">
+								<th>
+									<button
+										class="font-light technical-requirements__table-button technical-requirements__table-button_active">
+										Own server
+									</button>
+								</th>
+								<th>
+									<button
+										class="font-light technical-requirements__table-button">
+										Amazon Instance
+									</button>
+								</th>
+							</tr>
+						</thead>
+						<tbody
+							class="font-light technical-requirements__table-body">
+							<tr class="technical-requirements__table-row">
+								<th
+									class="technical-requirements__table-row-title">
+									OS + apps
+								</th>
+								<td
+									class="technical-requirements__table-row-item">
+									Unix/OSX + docker + nvidia-docker
+								</td>
+							</tr>
+							<tr class="technical-requirements__table-row">
+								<th
+									class="technical-requirements__table-row-title">
+									Free space
+								</th>
+								<td
+									class="technical-requirements__table-row-item">
+									100 GB of free space
+								</td>
+							</tr>
+							<tr class="technical-requirements__table-row">
+								<th
+									class="technical-requirements__table-row-title">
+									CPU
+								</th>
+								<td
+									class="technical-requirements__table-row-item">
+									4 cores or more (e.g. intel core i5)
+								</td>
+							</tr>
+							<tr class="technical-requirements__table-row">
+								<th
+									class="technical-requirements__table-row-title">
+									Graphics hardware
+								</th>
+								<td
+									class="technical-requirements__table-row-item">
+									GPU: NVidia only 2Gb+
+								</td>
+							</tr>
+							<tr class="technical-requirements__table-row">
+								<th
+									class="technical-requirements__table-row-title">
+									Memory
+								</th>
+								<td
+									class="technical-requirements__table-row-item">
+									16 GB RAM
+								</td>
+							</tr>
+						</tbody>
+						<tbody
+							class="font-light technical-requirements__table-body hide">
+							<tr class="technical-requirements__table-row">
+								<th
+									class="technical-requirements__table-row-title">
+									Instance
+								</th>
+								<td
+									class="technical-requirements__table-row-item">
+									g4dn.xlarge
+								</td>
+							</tr>
+							<tr class="technical-requirements__table-row">
+								<th
+									class="technical-requirements__table-row-title">
+									GPU
+								</th>
+								<td
+									class="technical-requirements__table-row-item">
+									1
+								</td>
+							</tr>
+							<tr class="technical-requirements__table-row">
+								<th
+									class="technical-requirements__table-row-title">
+									vCPUs
+								</th>
+								<td
+									class="technical-requirements__table-row-item">
+									4
+								</td>
+							</tr>
+							<tr class="technical-requirements__table-row">
+								<th
+									class="technical-requirements__table-row-title">
+									Memory
+								</th>
+								<td
+									class="technical-requirements__table-row-item">
+									16 GB RAM
+								</td>
+							</tr>
+							<tr class="technical-requirements__table-row">
+								<th
+									class="technical-requirements__table-row-title">
+									Storage
+								</th>
+								<td
+									class="technical-requirements__table-row-item">
+									125 GB
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</main>
+		<section class=""></section>
+		<script type="module" src="/src/main.tsx"></script>
+	</body>
+</html>
