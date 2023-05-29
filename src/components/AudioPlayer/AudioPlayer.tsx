@@ -8,6 +8,7 @@ interface IProps {
 	url: string;
 	back: () => void;
 	setLinks: React.Dispatch<React.SetStateAction<string[] | null>>;
+	inputRef: React.RefObject<HTMLInputElement>;
 }
 export interface IProgressBuffer {
 	start: number;
@@ -57,6 +58,9 @@ const AudioPlayer = (props: IProps) => {
 			localStorage.setItem('savedLinks', JSON.stringify(links));
 			props.setLinks(links.reverse());
 		}
+		return () => {
+			props.inputRef.current?.focus();
+		};
 	}, []);
 
 	// функция хелпер, для более удобной работы с setProgress

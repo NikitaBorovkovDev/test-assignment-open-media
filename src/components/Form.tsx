@@ -74,11 +74,7 @@ const Form = () => {
 		}
 	}, [selectedElementIndex, links]);
 
-	const handleSubmit = (
-		e:
-			| React.FormEvent<HTMLFormElement>
-			| React.MouseEvent<HTMLButtonElement, MouseEvent>
-	) => {
+	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		// поле ввода ссылки в формате “https://” или “http://” и содержит один или более символов, кроме пробелов
 		const regex = /^https?:\/\/\S+$/;
@@ -111,7 +107,11 @@ const Form = () => {
 					if (links && selectedElementIndex !== -1) {
 						setLink(links[selectedElementIndex]);
 						setLinksMenuOpen(false);
+					} else {
+						handleSubmit(e);
 					}
+				} else {
+					handleSubmit(e);
 				}
 				break;
 			default:
@@ -220,6 +220,7 @@ const Form = () => {
 				</div>
 			) : (
 				<AudioPlayer
+					inputRef={inputRef}
 					url={link}
 					setLinks={setLinks}
 					back={() => setShowPlayer(false)}
