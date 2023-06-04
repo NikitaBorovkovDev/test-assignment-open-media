@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import classes from './Volume.module.css';
 
 interface IProps {
 	audio: HTMLAudioElement | null;
 }
-const VolumeSlider = (props: IProps) => {
+const VolumeSlider = memo((props: IProps) => {
 	const { audio } = props;
 
 	const [isDraggingVolumeMouse, setIsDraggingVolumeMouse] = useState(false);
@@ -16,13 +16,17 @@ const VolumeSlider = (props: IProps) => {
 	const sliderRef = useRef<HTMLDivElement | null>(null);
 	const pointRef = useRef<HTMLSpanElement | null>(null);
 
-	const handleVolumeDragStartMouse = () => {
-		setIsDraggingVolumeMouse(() => true);
-	};
-	const handleVolumeDragStartTouch = (e: React.TouchEvent) => {
-		if (e.currentTarget === pointRef.current)
-			setIsDraggingVolumeTouch(true);
-	};
+	const handleVolumeDragStartMouse = useCallback(() => {
+		setIsDraggingVolumeMouse(true);
+	}, []);
+	const handleVolumeDragStartTouch = useCallback(
+		(e: React.TouchEvent) => {
+			if (e.currentTarget === pointRef.current)
+				setIsDraggingVolumeTouch(true);
+		},
+		[pointRef.current]
+	);
+
 	useEffect(() => {
 		const handleMouseUp = () => {
 			setIsDraggingVolumeMouse(false);
@@ -57,6 +61,12 @@ const VolumeSlider = (props: IProps) => {
 		};
 	}, [isDraggingVolumeMouse, isDraggingVolumeTouch]);
 
+	useEffect(() => {
+		if (audio) {
+			audio.volume = volume / 100;
+		}
+	}, [volume]);
+
 	const handleMove = (e: MouseEvent | TouchEvent) => {
 		if (isDraggingVolumeMouse || isDraggingVolumeTouch) {
 			const sliderRect = sliderRef.current?.getBoundingClientRect();
@@ -74,10 +84,7 @@ const VolumeSlider = (props: IProps) => {
 				const width = sliderRect!.width;
 				const newValue = Math.max(0, Math.min(offsetX / width, 1));
 
-				if (audio) {
-					audio.volume = newValue;
-					setVolume(newValue * 100);
-				}
+				setVolume(newValue * 100);
 			}
 		}
 	};
@@ -90,7 +97,6 @@ const VolumeSlider = (props: IProps) => {
 			const clickedVolume =
 				(event.clientX - volumeBar.getBoundingClientRect().left) /
 				volumeBar.offsetWidth;
-			audio.volume = clickedVolume;
 			setVolume(clickedVolume * 100);
 		}
 	};
@@ -121,6 +127,6 @@ const VolumeSlider = (props: IProps) => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default VolumeSlider;

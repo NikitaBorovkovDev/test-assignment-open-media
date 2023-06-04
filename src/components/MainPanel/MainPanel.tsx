@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import VolumeSlider from '../Volume/VolumeSlider';
 import formatTime from 'src/services/formatTime';
 import { IProgress, IProgressBuffer } from '../AudioPlayer/AudioPlayer';
@@ -13,7 +13,7 @@ interface IProps {
 	setCurrentTime: (time: number) => void;
 }
 
-const MainPanel = (props: IProps) => {
+const MainPanel = memo((props: IProps) => {
 	const {
 		audio,
 		handleProgress,
@@ -180,6 +180,6 @@ const MainPanel = (props: IProps) => {
 			</div>
 		</>
 	);
-};
+});
 
 export default MainPanel;
