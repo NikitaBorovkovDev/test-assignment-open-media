@@ -132,7 +132,9 @@ const MainPanel = memo((props: IProps) => {
 			<div
 				className={classes['audio-player__player-panel-progress-bar']}
 				ref={timeRef}
-				onClick={handleProgressClick}>
+				onClick={handleProgressClick}
+				onTouchStart={handleTimeDragStartTouch}
+				onMouseDown={handleTimeDragMouseStart}>
 				<div className={classes['audio-player__progress-bar-line']}>
 					<div
 						className={classes['audio-player__progress-bar-buffer']}

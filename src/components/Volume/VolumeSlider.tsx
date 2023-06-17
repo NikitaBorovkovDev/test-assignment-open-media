@@ -83,8 +83,8 @@ const VolumeSlider = memo((props: IProps) => {
 			if (offsetX >= 0) {
 				const width = sliderRect!.width;
 				const newValue = Math.max(0, Math.min(offsetX / width, 1));
-
-				setVolume(newValue * 100);
+				console.log(newValue);
+				setVolume(newValue < 0.01 ? 0 : newValue * 100);
 			}
 		}
 	};
@@ -104,7 +104,9 @@ const VolumeSlider = memo((props: IProps) => {
 		<div
 			ref={sliderRef}
 			className={classes['audio-player__volume']}
-			onClick={handleVolumeClick}>
+			onClick={handleVolumeClick}
+			onTouchStart={handleVolumeDragStartTouch}
+			onMouseDown={handleVolumeDragStartMouse}>
 			<div className={classes['audio-player__volume-line']}>
 				<div
 					className={classes['audio-player__volume-current']}
