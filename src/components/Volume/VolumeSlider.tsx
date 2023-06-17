@@ -21,7 +21,10 @@ const VolumeSlider = memo((props: IProps) => {
 	}, []);
 	const handleVolumeDragStartTouch = useCallback(
 		(e: React.TouchEvent) => {
-			if (e.currentTarget === pointRef.current)
+			if (
+				e.currentTarget === pointRef.current ||
+				e.currentTarget === sliderRef.current
+			)
 				setIsDraggingVolumeTouch(true);
 		},
 		[pointRef.current]

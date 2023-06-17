@@ -73,7 +73,11 @@ const MainPanel = memo((props: IProps) => {
 	};
 
 	const handleTimeDragStartTouch = (e: React.TouchEvent) => {
-		if (e.currentTarget === pointRef.current) setIsDraggingTimeTouch(true);
+		if (
+			e.currentTarget === pointRef.current ||
+			e.currentTarget === timeRef.current
+		)
+			setIsDraggingTimeTouch(true);
 	};
 
 	const handleMove = (e: MouseEvent | TouchEvent) => {
