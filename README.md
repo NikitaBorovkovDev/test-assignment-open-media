@@ -21,10 +21,7 @@
 - Сборщик Vite
 - Autoprefixer
 
-https://splendid-madeleine-c15712.netlify.app - результат
-
-https://github.com/nickfluffybr/test-assignment-open-media - исходный код
-
+https://audio-player-bn.netlify.app - результат
 
 Реализованные дополнительные задания:
 
